@@ -1,0 +1,26 @@
+$contents: (
+    "Hi my name is Sebastian"
+);
+
+$durationCharFwd: 0.2;
+$durationFullGab: 2.00;
+$durationCharBwd: 0.08;
+
+// Initialize
+$charCount: 0;
+$totDuration: 0;
+
+@each $content in $contents {
+    $charCount: $charCount + str-length($content);
+    $totalDuration: $totDuration
+        + (str-length($content) * ($durationCharFwd + $durationCharBwd))
+        + $durationFullGab
+}
+
+@function percent($content, $letter, $modifier) {
+
+}
+
+*{
+    color: red;
+}
