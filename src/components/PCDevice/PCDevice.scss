@@ -15,7 +15,7 @@ $pc-standing-top-floating: $pc-standing-top + toRem(320);
 $border-size: toRem(0);
 
 *{
-  background-color: white;
+  background-color: #1d1d1d;
   // overflow: hidden;
 }
 
@@ -57,7 +57,7 @@ $screen-animation-duration-fade-in: $screen-animation-duration-visibility;
 
 @keyframes pc-device-screen-fade-in {
   from { height: toRem(0); }
-  to { height: toRem(496); }
+  to { height: toRem(436); }
 }
 
 @keyframes pc-device-middle-standing-visibility{
@@ -92,7 +92,7 @@ $screen-animation-duration-fade-in: $screen-animation-duration-visibility;
       z-index: 4;
 
       $screen-width: toRem(800);
-      $screen-height: toRem(496);
+      $screen-height: toRem(436);
 
       position: relative;
       width: $screen-width;
