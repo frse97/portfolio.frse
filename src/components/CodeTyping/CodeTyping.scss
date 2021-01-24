@@ -1,0 +1,151 @@
+$contents: (
+ "Hi, my name is Sebastian"
+);
+
+$durationCharFwd: 0.12;      //Character typing
+$durationFullGab: 1.75;     //Type beetween typed/delete
+$durationCharBwd: 0.08;     //character deleted
+$durationDoneGap: 1.00;     //Time beetween strings
+
+// Initialize
+$charCount: 0;
+$totDuration: 0;
+
+@each $content in $contents {
+    $charCount: $charCount + str-length($content);
+    $totDuration: $totDuration 
+        + (str-length($content) * ($durationCharFwd + $durationCharBwd))
+        + $durationFullGab + $durationDoneGap
+}
+
+@function percent($content, $letter, $modifier) {
+    $stringsPast: $content - 1;
+    $time: 0;
+
+    @while $stringsPast > 0 {
+        $time: $time 
+            + (($durationCharFwd + $durationCharBwd) * (str-length(nth($contents, $stringsPast))))
+            + $durationFullGab + $durationDoneGap;
+        $stringsPast: $stringsPast - 1;
+    }
+
+    @if $letter <= str-length(nth($contents, $content)) {
+        $time: $time 
+            + ($durationCharFwd * ($letter - 1));
+    } @else {
+        $time : $time 
+            + ($durationCharFwd * str-length(nth($contents, $content)))
+            + $durationFullGab
+            + ($durationCharBwd * ($letter - str-length(nth($contents, $content))));
+    }
+
+    @return ($time / $totDuration * 100 + $modifier) + "%";
+}
+
+$currentPercentage: 0;
+
+@keyframes typed {
+    // Iterate through strings array
+    @for $i from 1 through length($contents){
+
+        // Iterate through letters (i guess two times)
+        @for $j from 1 through (str-length(nth($contents, $i)) * 2) {
+            
+            @if $j < str-length(nth($contents, $i)) * 2 {
+                #{percent($i, $j, 0)}, #{percent($i, $j+1, -0.001)} {
+
+                    @if $j <= str-length(nth($contents, $i)){
+                        content: quote(#{str_slice(nth($contents, $i), 1, $j)});
+                    } @else {
+                        content: quote(#{str_slice(nth($contents, $i), 1, str-length(nth($contents, $i)) - ($j - str-length(nth($contents, $i))))});
+                    }
+                }
+            } @else {
+
+                @if $i < length($contents) {
+                    #{percent($i, $j, 0)}, #{percent($i+1, 1, -0.001)} {
+                        content: " ​" //zero-width space to retain element height
+                    }
+                } @else {
+                    #{percent($i, $j, 0)}, 100% {
+                        content: " "
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes blink {
+    75% { border-color: transparent; }
+}
+
+* {
+}
+
+html{
+
+    overflow: hidden;
+    height: 100%;
+
+    div.typing-wrapper{
+        height: inherit;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        margin: 0;
+        background-color: black;
+    
+        #root {
+            height: inherit;
+        }
+    }
+
+    //Stats
+    // &::before{
+    //     content: "#{length($contents)} strings / #{$charCount} chars / #{$totDuration}s duration";
+	// 	@media (max-width: 575px) {
+	// 		content: "#{length($contents)} strings \A #{$charCount} chars \A #{$totDuration}s duration";
+	// 	}
+	// 	display: block;
+	// 	position: absolute;
+	// 	bottom: 0;
+	// 	width: 100%;
+	// 	padding: 3px 0;
+	// 	background: #00f; // aquaman blue
+	// 	color: #fff; // Brandon-McConnell white
+	// 	text-align: center;
+	// 	font-size: 18px;
+	// 	letter-spacing: 0.7px;
+	// 	white-space: pre-wrap;
+    // }
+}
+
+div.frse-portfolio{
+    color: white;
+    font-size: 3.2rem;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    -webkit-font-smooting: antialiased;
+    -moz-osx-font-smooting: grayscale;
+    animation: typed #{$totDuration + "s"} linear 1s infinite, blink 1s infinite;
+
+    &::after{
+        content: " ";
+        position: relative;
+        top: -13px;
+        @media (max-width: 575px) { top: -33px; }
+        display: inline-block;
+        padding-right: 3px;
+        padding-right: calc(3px + 0.1vw);
+        border-right: calc(1.1vw + 4px) solid rgba(#f0f0f0, 0.75);
+		text-shadow: 0 0 5px rgba(51, 53, 51, 0.75);
+		white-space: nowrap;
+		animation: typed #{$totDuration + "s"} linear 1s infinite, blink 1s infinite;
+    }
+}

@@ -1,12 +1,9 @@
 import React from 'react';
+import { PCDevice } from './components/';
 
 const App: React.FC = () => {
   return (
-    <div className="frse-portfolio">
-      <div className="container">
-        Hi, my name is Sebastian Fries
-      </div>
-    </div>
+    <PCDevice />
   );
 }
 

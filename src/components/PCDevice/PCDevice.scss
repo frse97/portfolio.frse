@@ -1,0 +1,160 @@
+@import '../../styles/utils.scss';
+
+//colors
+$colors-gold: #ffd700;
+$colors-red: #cc0000;
+
+$pc-container-size: toRem(800);
+
+$pc-standing-height: toRem(30);
+$pc-standing-margin-bottom: toRem(160);
+
+$pc-standing-top: 0;
+$pc-standing-top-floating: $pc-standing-top + toRem(320);
+
+$border-size: toRem(0);
+
+*{
+  background-color: white;
+  // overflow: hidden;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+#root{
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+body{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+$standing-2-animation-duration: 0.6s;
+
+$standing-1-visibility-animation-duration: 1.8s;
+$standing-1-fade-in-animation-duration: $standing-1-visibility-animation-duration;
+
+$standing-middle-visibility-animation-duration: 3.6s;
+$standing-middle-fade-in-animation-duration: $standing-middle-visibility-animation-duration;
+
+$screen-animation-duration-visibility: 5.2s;
+$screen-animation-duration-fade-in: $screen-animation-duration-visibility;
+
+@keyframes pc-device-screen-visibility {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pc-device-screen-fade-in {
+  from { height: toRem(0); }
+  to { height: toRem(496); }
+}
+
+@keyframes pc-device-middle-standing-visibility{
+  from { opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes pc-device-middle-standing {
+  from { border-bottom: toRem(0) solid #d3d3d3 }
+  to { border-bottom: toRem(112) solid #d3d3d3 }
+}
+
+@keyframes pc-device-standing-part1-visibility{
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pc-device-standing-part1-float-in {
+  from { height: toRem(0) }
+  to { height: toRem(30) }
+}
+
+@keyframes pc-device-standing-part2-float-in {
+  from { height: toRem(0) }
+  to { height: toRem(20) }
+}
+
+.pc-device-wrapper{
+  padding: 32px 16px;
+
+    .pc-device-screen{
+      z-index: 4;
+
+      $screen-width: toRem(800);
+      $screen-height: toRem(496);
+
+      position: relative;
+      width: $screen-width;
+      height: $screen-height;
+      background-color: #939393; 
+      border: 12px solid #d3d3d3;
+      box-shadow: 0px 6px 10px 6px rgba(102,102,102,0.4);
+      border-radius: 8%;
+      top: toRem(4);
+
+      animation: pc-device-screen-visibility $screen-animation-duration-visibility linear, pc-device-screen-fade-in $screen-animation-duration-fade-in linear;
+    }
+
+    .pc-device-middle-standing{
+      z-index: 2;
+      top: toRem(4);
+
+      position: relative;
+      border-bottom: toRem(112) solid #d3d3d3;
+      border-left: toRem(32) solid transparent;
+      border-right: toRem(32) solid transparent;
+      height: 0;
+      width: toRem(48);
+      left: calc(50% - 48px);
+
+      animation: pc-device-middle-standing-visibility $standing-middle-visibility-animation-duration linear, pc-device-middle-standing $standing-middle-fade-in-animation-duration linear;
+    }
+
+    .pc-device-standing-part1{
+      top: $pc-standing-top;
+
+      position: relative;
+      margin: 0 auto;
+      height: toRem(30);
+      width: toRem(600);
+      background-color: #d3d3d3;
+      border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
+      border-top: $border-size solid $colors-red;
+      border-left: $border-size solid $colors-red;
+      border-right: $border-size solid $colors-red;
+      overflow: hidden;
+
+      animation: pc-device-standing-part1-visibility $standing-1-visibility-animation-duration linear, pc-device-standing-part1-float-in $standing-1-fade-in-animation-duration linear;
+    }
+
+    .pc-device-standing-part2{
+      position: relative;
+      margin: 0 auto;
+      height: toRem(20);
+      width: toRem(600);
+      background-color: #d3d3d3;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      border-bottom: $border-size solid $colors-red;
+      border-left: $border-size solid $colors-red;
+      border-right: $border-size solid $colors-red;
+      box-shadow: 0px 6px 10px 6px rgba(102,102,102,0.4);
+
+      animation: pc-device-standing-part2-float-in $standing-2-animation-duration linear;
+    
+      top: $pc-standing-top;
+    }
+  }
