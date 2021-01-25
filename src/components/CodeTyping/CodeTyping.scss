@@ -101,7 +101,7 @@ $currentPercentage: 0;
 $power-color: #fd4444;
 $power-color-hover: #1df678;
 
-div.typing-wrapper{
+div.typing-wrapper.power-off{
     height: inherit;
     display: flex;
     -webkit-box-orient: vertical;
@@ -165,6 +165,48 @@ div.typing-wrapper{
             background-color:  $power-color-hover;
             box-shadow: 0px 0px 6px $power-color-hover;
         }
+    }
+}
+
+div.typing-wrapper.power-on{
+    height: inherit;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+
+    div.frse-portfolio-start{
+        position: absolute;
+        top: calc(50%);
+        left: 0;
+        width: 100%;
+        height: 1px;
+        border-radius: 1px;
+        text-decoration: none;
+        border: none;
+
+        animation-name: start-visibility;
+        animation-duration: 16s;
+        animation-timing-function: linear;
+
+        outline: none;
+        border-color: $power-color;
+        box-shadow: 0 0px 0px $power-color;
+
+        transition: all linear 2s;
+
+        .frse-portfolio-power1{
+            position: absolute;
+            transition: all ease 2s;
+        }
+        .frse-portfolio-power2{
+            position: absolute;
+            transition: all ease 2s;
+        }
+    }
+
+    div.frse-portfolio-start:hover{
+        cursor: pointer;
     }
 }
 
