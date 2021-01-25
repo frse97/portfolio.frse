@@ -48,7 +48,7 @@ $screen-animation-duration-visibility: $pc-animation-time;
 $screen-animation-duration-fade-in: $screen-animation-duration-visibility;
 
 $keyboard-animation-duration-visibility: 4.8s;
-$keyboard-animation-duration-fade-in: 3.2s;
+$keyboard-animation-duration-fade-in: 2s;
 $keyboard-animation-delay: $pc-animation-time;
 
 @keyframes keyboard-visibility{
@@ -110,7 +110,7 @@ $keyboard-animation-delay: $pc-animation-time;
       position: relative;
       width: $screen-width;
       height: $screen-height;
-      background-color: #939393; 
+      background-color: #151515; 
       border: 12px solid #d3d3d3;
       box-shadow: 0px 6px 10px 6px rgba(102,102,102,0.4);
       border-radius: 8%;
@@ -178,9 +178,15 @@ $keyboard-animation-delay: $pc-animation-time;
       width: toRem(720);
       border-radius: toRem(40) toRem(40) toRem(100) toRem(100);
       background-color: #d3d3d3;
-      box-shadow: 0px 6px 10px 6px rgba(102,102,102,0.4);
 
       animation: keyboard-visibility $keyboard-animation-duration-visibility linear, keyboard-fade-in $keyboard-animation-duration-fade-in linear $keyboard-animation-delay;
-    }
+    
+      -webkit-transition: all 0.1s;
+      -moz-transition: all 0.1s;
+      transition: all 0.1s;
+
+      -webkit-box-shadow: 0px toRem(12) toRem(2) #7e7e7e;
+      -moz-box-shadow: 0px toRem(12) toRem(2) #7e7e7e;
+      box-shadow: 0px toRem(12) toRem(2) #7e7e7e;
   }
- 
+}

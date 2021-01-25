@@ -1,9 +1,9 @@
 import React from 'react';
-import { PCDevice } from './components/';
+import { PCDevice, CodeTyping } from './components/';
 
 const App: React.FC = () => {
   return (
-    <PCDevice />
+    <PCDevice screenContent={<CodeTyping />} />
   );
 }
 

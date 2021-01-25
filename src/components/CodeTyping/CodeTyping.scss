@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
 $contents: (
  "Hi, my name is Sebastian"
+ "Thank you for visiting my Portfolio"
 );
 
-$durationCharFwd: 0.12;      //Character typing
-$durationFullGab: 1.75;     //Type beetween typed/delete
-$durationCharBwd: 0.08;     //character deleted
+$durationCharFwd: 0.08;      //Character typing
+$durationFullGab: 1.25;     //Type beetween typed/delete
+$durationCharBwd: 0.04;     //character deleted
 $durationDoneGap: 1.00;     //Time beetween strings
 
 // Initialize
@@ -94,8 +97,6 @@ html{
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         flex-direction: column;
-        margin: 0;
-        background-color: black;
     
         #root {
             height: inherit;
@@ -124,7 +125,8 @@ html{
 
 div.frse-portfolio{
     color: white;
-    font-size: 3.2rem;
+    font-family: 'Comfortaa', cursive;
+    font-size: 2.6rem;
     height: inherit;
     display: flex;
     flex-direction: column;
@@ -133,7 +135,7 @@ div.frse-portfolio{
     align-items: center;
     -webkit-font-smooting: antialiased;
     -moz-osx-font-smooting: grayscale;
-    animation: typed #{$totDuration + "s"} linear 1s infinite, blink 1s infinite;
+    animation: typed #{$totDuration + "s"} linear 3.2s, blink 1s;
 
     &::after{
         content: " ";
@@ -144,8 +146,8 @@ div.frse-portfolio{
         padding-right: 3px;
         padding-right: calc(3px + 0.1vw);
         border-right: calc(1.1vw + 4px) solid rgba(#f0f0f0, 0.75);
-		text-shadow: 0 0 5px rgba(51, 53, 51, 0.75);
+		text-shadow: 0 0 5px rgba(85, 85, 85, 0.75);
 		white-space: nowrap;
-		animation: typed #{$totDuration + "s"} linear 1s infinite, blink 1s infinite;
+		animation: typed #{$totDuration + "s"} linear 3.2s, blink 1s;
     }
 }
