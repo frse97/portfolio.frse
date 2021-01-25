@@ -99,7 +99,7 @@ $currentPercentage: 0;
 }
 
 $power-color: #fd4444;
-$power-color-hover: #1df678;
+$power-color-hover: #1c6dee;
 
 div.typing-wrapper.power-off{
     height: inherit;
@@ -190,18 +190,18 @@ div.typing-wrapper.power-on{
         animation-timing-function: linear;
 
         outline: none;
-        border-color: $power-color;
-        box-shadow: 0 0px 0px $power-color;
+        border-color: $power-color-hover;
+        box-shadow: 0 0px 0px $power-color-hover;
 
-        transition: all linear 2s;
+        transition: all linear 0.8s;
 
         .frse-portfolio-power1{
             position: absolute;
-            transition: all ease 2s;
+            transition: all ease 0.8s;
         }
         .frse-portfolio-power2{
             position: absolute;
-            transition: all ease 2s;
+            transition: all ease 0.8s;
         }
     }
 

@@ -18,9 +18,9 @@ const PCDevice: React.FC<IPCDevice> = props => {
               <div className="pc-device-middle-standing" />
               <div className="pc-device-standing-part1" />
               <div className="pc-device-standing-part2" />
-              <div className="pc-device-keyboard">
+              {/* <div className="pc-device-keyboard">
                 <div className="keyboard-header-row" />
-              </div>
+              </div> */}
           </div>);
 }
 
