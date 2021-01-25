@@ -14,14 +14,10 @@ $pc-standing-top-floating: $pc-standing-top + toRem(320);
 
 $border-size: toRem(0);
 
-*{
-  background-color: #1d1d1d;
-  // overflow: hidden;
-}
-
 html, body {
   width: 100%;
   height: 100%;
+  background-color: #1d1d1d;
 }
 
 #root{
@@ -38,17 +34,35 @@ body{
   flex-direction: column;
 }
 
+$pc-animation-time: 2.4s;
 
-$standing-2-animation-duration: 0.6s;
+$standing-2-animation-duration: $pc-animation-time;
 
-$standing-1-visibility-animation-duration: 1.8s;
+$standing-1-visibility-animation-duration: $pc-animation-time;
 $standing-1-fade-in-animation-duration: $standing-1-visibility-animation-duration;
 
-$standing-middle-visibility-animation-duration: 3.6s;
+$standing-middle-visibility-animation-duration: $pc-animation-time;
 $standing-middle-fade-in-animation-duration: $standing-middle-visibility-animation-duration;
 
-$screen-animation-duration-visibility: 5.2s;
+$screen-animation-duration-visibility: $pc-animation-time;
 $screen-animation-duration-fade-in: $screen-animation-duration-visibility;
+
+$keyboard-animation-duration-visibility: 4.8s;
+$keyboard-animation-duration-fade-in: 3.2s;
+$keyboard-animation-delay: $pc-animation-time;
+
+@keyframes keyboard-visibility{
+  0% { opacity: 0; }
+  25% { opacity: 0; }
+  50% { opacity: 0; }
+  75% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes keyboard-fade-in{
+  from { top: 120px; }
+  to { top: 0px; }
+}
 
 @keyframes pc-device-screen-visibility {
   from { opacity: 0; }
@@ -90,7 +104,6 @@ $screen-animation-duration-fade-in: $screen-animation-duration-visibility;
 
     .pc-device-screen{
       z-index: 4;
-
       $screen-width: toRem(800);
       $screen-height: toRem(436);
 
@@ -157,4 +170,17 @@ $screen-animation-duration-fade-in: $screen-animation-duration-visibility;
     
       top: $pc-standing-top;
     }
+
+    .pc-device-keyboard{
+      position: relative;
+      margin: toRem(46) auto 0 auto;
+      height: toRem(120);
+      width: toRem(720);
+      border-radius: toRem(40) toRem(40) toRem(100) toRem(100);
+      background-color: #d3d3d3;
+      box-shadow: 0px 6px 10px 6px rgba(102,102,102,0.4);
+
+      animation: keyboard-visibility $keyboard-animation-duration-visibility linear, keyboard-fade-in $keyboard-animation-duration-fade-in linear $keyboard-animation-delay;
+    }
   }
+ 

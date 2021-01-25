@@ -7,6 +7,9 @@ const PCDevice: React.FC = () => {
               <div className="pc-device-middle-standing" />
               <div className="pc-device-standing-part1" />
               <div className="pc-device-standing-part2" />
+              <div className="pc-device-keyboard">
+                
+              </div>
           </div>);
 }
 
