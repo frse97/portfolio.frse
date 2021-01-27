@@ -1,19 +1,20 @@
 // 📦 Imports
+@import "../../../../styles/utils.scss";
 
 // 🉐 Variables
-$pc-animation-time: 2.4s;
-
 $keyboard-animation-duration-visibility: 4.8s;
 $keyboard-animation-duration-fade-in: 2s;
-$keyboard-animation-delay: $pc-animation-time;
+$keyboard-animation-delay: $anim-intro-duration;
 
 .pc-device-keyboard {
+  $box-shadow-color: #7e7e7e;
+
   position: relative;
   margin: toRem(46) auto 0 auto;
   height: toRem(120);
   width: toRem(720);
   border-radius: toRem(40) toRem(40) toRem(100) toRem(100);
-  background-color: #d3d3d3;
+  background-color: $pc-base-color;
 
   animation: keyboard-visibility $keyboard-animation-duration-visibility linear,
     keyboard-fade-in $keyboard-animation-duration-fade-in linear
@@ -23,9 +24,9 @@ $keyboard-animation-delay: $pc-animation-time;
   -moz-transition: all 0.1s;
   transition: all 0.1s;
 
-  -webkit-box-shadow: 0px toRem(12) toRem(2) #7e7e7e;
-  -moz-box-shadow: 0px toRem(12) toRem(2) #7e7e7e;
-  box-shadow: 0px toRem(12) toRem(2) #7e7e7e;
+  -webkit-box-shadow: 0 toRem(12) toRem(2) $box-shadow-color;
+  -moz-box-shadow: 0 toRem(12) toRem(2) $box-shadow-color;
+  box-shadow: 0 toRem(12) toRem(2) $box-shadow-color;
 }
 
 // ✨ Animations

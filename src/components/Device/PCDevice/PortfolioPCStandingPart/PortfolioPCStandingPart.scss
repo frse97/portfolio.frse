@@ -31,8 +31,6 @@
 }
 
 .pc-device-standing-part2 {
-  $pc-device-standing-part-boxshadow-bg: rgba(102, 102, 102, 0.4);
-
   position: relative;
   margin: 0 auto;
   height: toRem(20);
@@ -42,8 +40,7 @@
   border-top-right-radius: 0;
   border-bottom-left-radius: toRem(12);
   border-bottom-right-radius: toRem(12);
-  box-shadow: 0 toRem(6) toRem(10) toRem(6)
-    $pc-device-standing-part-boxshadow-bg;
+  box-shadow: 0 toRem(6) toRem(10) toRem(6) $pc-boxshadow-color;
 
   animation: pc-device-standing-part2-float-in $anim-intro-duration linear;
   top: 0;

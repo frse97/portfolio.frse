@@ -4,9 +4,10 @@
 
 //🌈 Colors Variables
 $pc-base-color: #d3d3d3;
+$pc-boxshadow-color: rgba(102, 102, 102, 0.4);
 
 // ✨ Animation Variables
-$anim-intro-duration: 0.9s;
+$anim-intro-duration: 0.8s;
 
 // Functions
 @function toRem($base) {
