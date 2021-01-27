@@ -2,31 +2,74 @@
 @import "../../../../styles/utils.scss";
 
 // 🉐 Variables
+$box-shadow-color: #7e7e7e;
 $keyboard-animation-duration-visibility: 4.8s;
 $keyboard-animation-duration-fade-in: 2s;
 $keyboard-animation-delay: $anim-intro-duration;
 
 .pc-device-keyboard {
-  $box-shadow-color: #7e7e7e;
+  &-wrapper {
+    margin: toRem(46) auto 0 auto;
 
-  position: relative;
-  margin: toRem(46) auto 0 auto;
-  height: toRem(120);
-  width: toRem(720);
-  border-radius: toRem(40) toRem(40) toRem(100) toRem(100);
-  background-color: $pc-base-color;
+    .pc-device-keyboard {
+      &-actions {
+        position: relative;
+        margin: 0 auto;
+        height: toRem(100);
+        width: toRem(720);
+        border-radius: toRem(100) toRem(100) toRem(40) toRem(40);
+        background-color: $pc-base-color;
 
-  animation: keyboard-visibility $keyboard-animation-duration-visibility linear,
-    keyboard-fade-in $keyboard-animation-duration-fade-in linear
-      $keyboard-animation-delay;
+        animation: keyboard-visibility $keyboard-animation-duration-visibility
+            linear,
+          keyboard-fade-in $keyboard-animation-duration-fade-in linear
+            $keyboard-animation-delay;
 
-  -webkit-transition: all 0.1s;
-  -moz-transition: all 0.1s;
-  transition: all 0.1s;
+        -webkit-transition: all 0.1s;
+        -moz-transition: all 0.1s;
+        transition: all 0.1s;
 
-  -webkit-box-shadow: 0 toRem(12) toRem(2) $box-shadow-color;
-  -moz-box-shadow: 0 toRem(12) toRem(2) $box-shadow-color;
-  box-shadow: 0 toRem(12) toRem(2) $box-shadow-color;
+        -webkit-box-shadow: 0 toRem(12) toRem(2) $box-shadow-color;
+        -moz-box-shadow: 0 toRem(12) toRem(2) $box-shadow-color;
+        box-shadow: 0 toRem(12) toRem(2) $box-shadow-color;
+      }
+
+      &-search {
+        position: relative;
+        height: toRem(44);
+        width: toRem(320);
+        border-radius: toRem(66) toRem(66) toRem(0) toRem(0);
+        background-color: $pc-base-color;
+        margin: 0 auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        animation: keyboard-visibility $keyboard-animation-duration-visibility
+            linear,
+          keyboard-fade-in $keyboard-animation-duration-fade-in linear
+            $keyboard-animation-delay;
+
+        > input#portfolio-search {
+          min-height: toRem(38);
+          max-height: toRem(38);
+          z-index: 999;
+          width: 300px;
+          margin-top: 8px;
+          border-radius: toRem(66) toRem(66) toRem(0) toRem(0);
+          border: 0;
+          padding: 0 32px;
+
+          box-shadow: 0.1rem 0.1rem 0.8rem $box-shadow-color;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
 }
 
 // ✨ Animations

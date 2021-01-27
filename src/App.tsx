@@ -14,7 +14,13 @@ const App: React.FC = () => {
   const portfolioContentClassName = cs("portfolio-content", mode === 'on' ? 'power-start' : '');
 
   return (
-    <PortfolioDevice screenContent={<><CodeTyping mode={mode} handleMode={handleStartMode} /><div className={portfolioContentClassName}><div>Content comes here</div></div></>} />
+    <PortfolioDevice screenContent={
+      <>
+        <CodeTyping mode={mode} handleMode={handleStartMode} />
+        <div className={portfolioContentClassName}>
+          {/* <div>Content comes here</div> */}
+        </div>
+      </>} />
   );
 }
 
