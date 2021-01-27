@@ -1,259 +1,292 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-@import '../../styles/utils.scss';
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+@import "../../styles/utils.scss";
 
-$contents: (
- "Hi, my name is Sebastian"
- "Thank you for visiting my Portfolio"
-);
+$contents: ("Hi, my name is Sebastian" "Thank you for visiting my Portfolio");
 
-$durationCharFwd: 0.08;      //Character typing
-$durationFullGab: 1.25;     //Type beetween typed/delete
-$durationCharBwd: 0.04;     //character deleted
-$durationDoneGap: 1.00;     //Time beetween strings
+$durationCharFwd: 0.06; //Character typing
+$durationFullGab: 0.6; //Type beetween typed/delete
+$durationCharBwd: 0.02; //character deleted
+$durationDoneGap: 1; //Time beetween strings
 
 // Initialize
 $charCount: 0;
 $totDuration: 0;
 
 @each $content in $contents {
-    $charCount: $charCount + str-length($content);
-    $totDuration: $totDuration 
-        + (str-length($content) * ($durationCharFwd + $durationCharBwd))
-        + $durationFullGab + $durationDoneGap
+  $charCount: $charCount + str-length($content);
+  $totDuration: $totDuration +
+    (str-length($content) * ($durationCharFwd + $durationCharBwd)) +
+    $durationFullGab +
+    $durationDoneGap;
 }
 
 @function percent($content, $letter, $modifier) {
-    $stringsPast: $content - 1;
-    $time: 0;
+  $stringsPast: $content - 1;
+  $time: 0;
 
-    @while $stringsPast > 0 {
-        $time: $time 
-            + (($durationCharFwd + $durationCharBwd) * (str-length(nth($contents, $stringsPast))))
-            + $durationFullGab + $durationDoneGap;
-        $stringsPast: $stringsPast - 1;
-    }
+  @while $stringsPast > 0 {
+    $time: $time +
+      (
+        ($durationCharFwd + $durationCharBwd) *
+          (str-length(nth($contents, $stringsPast)))
+      ) +
+      $durationFullGab +
+      $durationDoneGap;
+    $stringsPast: $stringsPast - 1;
+  }
 
-    @if $letter <= str-length(nth($contents, $content)) {
-        $time: $time 
-            + ($durationCharFwd * ($letter - 1));
-    } @else {
-        $time : $time 
-            + ($durationCharFwd * str-length(nth($contents, $content)))
-            + $durationFullGab
-            + ($durationCharBwd * ($letter - str-length(nth($contents, $content))));
-    }
+  @if $letter <= str-length(nth($contents, $content)) {
+    $time: $time + ($durationCharFwd * ($letter - 1));
+  } @else {
+    $time: $time +
+      ($durationCharFwd * str-length(nth($contents, $content))) +
+      $durationFullGab +
+      ($durationCharBwd * ($letter - str-length(nth($contents, $content))));
+  }
 
-    @return ($time / $totDuration * 100 + $modifier) + "%";
+  @return ($time / $totDuration * 100 + $modifier) + "%";
 }
 
 $currentPercentage: 0;
 
 @keyframes typed {
-    // Iterate through strings array
-    @for $i from 1 through length($contents){
-
-        // Iterate through letters (i guess two times)
-        @for $j from 1 through (str-length(nth($contents, $i)) * 2) {
-            
-            @if $j < str-length(nth($contents, $i)) * 2 {
-                #{percent($i, $j, 0)}, #{percent($i, $j+1, -0.001)} {
-
-                    @if $j <= str-length(nth($contents, $i)){
-                        content: quote(#{str_slice(nth($contents, $i), 1, $j)});
-                    } @else {
-                        content: quote(#{str_slice(nth($contents, $i), 1, str-length(nth($contents, $i)) - ($j - str-length(nth($contents, $i))))});
-                    }
-                }
-            } @else {
-
-                @if $i < length($contents) {
-                    #{percent($i, $j, 0)}, #{percent($i+1, 1, -0.001)} {
-                        content: " ​" //zero-width space to retain element height
-                    }
-                } @else {
-                    #{percent($i, $j, 0)}, 100% {
-                        content: " "
-                    }
-                }
-            }
+  // Iterate through strings array
+  @for $i from 1 through length($contents) {
+    // Iterate through letters (i guess two times)
+    @for $j from 1 through (str-length(nth($contents, $i)) * 2) {
+      @if $j < str-length(nth($contents, $i)) * 2 {
+        #{percent($i, $j, 0)},
+        #{percent($i, $j+1, -0.001)} {
+          @if $j <= str-length(nth($contents, $i)) {
+            content: quote(#{str_slice(nth($contents, $i), 1, $j)});
+          } @else {
+            content: quote(
+              #{str_slice(
+                  nth($contents, $i),
+                  1,
+                  str-length(nth($contents, $i)) -
+                    ($j - str-length(nth($contents, $i)))
+                )}
+            );
+          }
         }
+      } @else {
+        @if $i < length($contents) {
+          #{percent($i, $j, 0)},
+          #{percent($i+1, 1, -0.001)} {
+            content: " ​"; //zero-width space to retain element height
+          }
+        } @else {
+          #{percent($i, $j, 0)},
+          100% {
+            content: " ";
+          }
+        }
+      }
     }
+  }
 }
 
 @keyframes blink {
-    75% { border-color: transparent; }
+  75% {
+    border-color: transparent;
+  }
 }
 
 @keyframes start-visibility {
-    0% {opacity: 0; }
-    10% {opacity: 0; }
-    20% {opacity: 0; }
-    30% {opacity: 0; }
-    40% {opacity: 0; }
-    50% {opacity: 0; }
-    60% {opacity: 0; }
-    70% {opacity: 0; }
-    80% {opacity: 0; }
-    90% {opacity: 0; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 $power-color: #fd4444;
 $power-color-hover: #1c6dee;
 
-div.typing-wrapper.power-off{
-    height: inherit;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
+div.typing-wrapper.power-off {
+  height: inherit;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
 
-    div.frse-portfolio-start{
-        position: absolute;
-        top: calc(50% - 75px);
-        left: calc(50% - 75px);
-        width: 160px;
-        height: 160px;
-        border-radius: 120px;
-        text-decoration: none;
-        border: none;
+  div.frse-portfolio-start {
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+    width: 160px;
+    height: 160px;
+    border-radius: 120px;
+    text-decoration: none;
+    border: none;
 
-        animation-name: start-visibility;
-        animation-duration: 16s;
-        animation-timing-function: linear;
+    animation-name: start-visibility;
+    animation-duration: 9.6s;
+    animation-timing-function: linear;
 
-        outline: none;
-        border-color: $power-color;
-        box-shadow: 0 1px 24px $power-color;
+    outline: none;
+    border-color: $power-color;
+    box-shadow: 0 1px 24px $power-color;
 
-        .frse-portfolio-power1{
-            position: absolute;
-            width: 70px;
-            height: 70px;
-            border: 20px solid  $power-color;
-            top: calc(50% - 55px);
-            left: calc(50% - 55px);
-            border-radius: 100%;
-            box-shadow: 0px 0px 16px  $power-color;
-        }
-        .frse-portfolio-power2{
-            top: 6px;
-            border: 5px solid #151515;
-            left: 65px;
-            position: absolute;
-            width: 20px;
-            height: 60px;
-            background-color: $power-color;
-            border-radius: 20px;
-            z-index: 800;
-            box-shadow: 0px 0px 6px $power-color;
-            opacity: 1;
-        }
+    .frse-portfolio-power1 {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border: 20px solid $power-color;
+      top: calc(50% - 55px);
+      left: calc(50% - 55px);
+      border-radius: 100%;
+      box-shadow: 0px 0px 16px $power-color;
+    }
+    .frse-portfolio-power2 {
+      top: 6px;
+      border: 5px solid #151515;
+      left: 65px;
+      position: absolute;
+      width: 20px;
+      height: 60px;
+      background-color: $power-color;
+      border-radius: 20px;
+      z-index: 800;
+      box-shadow: 0px 0px 6px $power-color;
+      opacity: 1;
+    }
+  }
+
+  div.frse-portfolio-start:hover {
+    border-color: $power-color-hover;
+    box-shadow: 0 1px 24px $power-color-hover;
+    cursor: pointer;
+
+    .frse-portfolio-power1 {
+      border: 20px solid $power-color-hover;
+      box-shadow: 0px 0px 16px $power-color-hover;
     }
 
-    div.frse-portfolio-start:hover{
-        border-color: $power-color-hover;
-        box-shadow: 0 1px 24px $power-color-hover;
-        cursor: pointer;
-
-        .frse-portfolio-power1{
-            border: 20px solid $power-color-hover;
-            box-shadow: 0px 0px 16px $power-color-hover;
-        } 
-
-        .frse-portfolio-power2{
-            background-color:  $power-color-hover;
-            box-shadow: 0px 0px 6px $power-color-hover;
-        }
+    .frse-portfolio-power2 {
+      background-color: $power-color-hover;
+      box-shadow: 0px 0px 6px $power-color-hover;
     }
+  }
 }
 
-div.typing-wrapper.power-on{
-    height: inherit;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
+div.typing-wrapper.power-on {
+  height: inherit;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
 
-    div.frse-portfolio-start{
-        position: absolute;
-        top: calc(50%);
-        left: 0;
-        width: 100%;
-        height: 1px;
-        border-radius: 1px;
-        text-decoration: none;
-        border: none;
+  div.frse-portfolio-start {
+    position: absolute;
+    top: calc(50%);
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-radius: 1px;
+    text-decoration: none;
+    border: none;
 
-        animation-name: start-visibility;
-        animation-duration: 16s;
-        animation-timing-function: linear;
+    animation-name: start-visibility;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
 
-        outline: none;
-        border-color: $power-color-hover;
-        box-shadow: 0 0px 0px $power-color-hover;
+    outline: none;
+    border-color: $power-color-hover;
+    box-shadow: 0 0px 0px $power-color-hover;
 
-        transition: all linear 0.8s;
+    transition: all linear 0.2s;
 
-        .frse-portfolio-power1{
-            position: absolute;
-            transition: all ease 0.8s;
-        }
-        .frse-portfolio-power2{
-            position: absolute;
-            transition: all ease 0.8s;
-        }
+    .frse-portfolio-power1 {
+      position: absolute;
+      transition: all ease 0.2s;
     }
-
-    div.frse-portfolio-start:hover{
-        cursor: pointer;
+    .frse-portfolio-power2 {
+      position: absolute;
+      transition: all ease 0.2s;
     }
+  }
+
+  div.frse-portfolio-start:hover {
+    cursor: pointer;
+  }
 }
 
-    //Stats
-    // &::before{
-    //     content: "#{length($contents)} strings / #{$charCount} chars / #{$totDuration}s duration";
-	// 	@media (max-width: 575px) {
-	// 		content: "#{length($contents)} strings \A #{$charCount} chars \A #{$totDuration}s duration";
-	// 	}
-	// 	display: block;
-	// 	position: absolute;
-	// 	bottom: 0;
-	// 	width: 100%;
-	// 	padding: 3px 0;
-	// 	background: #00f; // aquaman blue
-	// 	color: #fff; // Brandon-McConnell white
-	// 	text-align: center;
-	// 	font-size: 18px;
-	// 	letter-spacing: 0.7px;
-	// 	white-space: pre-wrap;
-    // }
+//Stats
+// &::before{
+//     content: "#{length($contents)} strings / #{$charCount} chars / #{$totDuration}s duration";
+// 	@media (max-width: 575px) {
+// 		content: "#{length($contents)} strings \A #{$charCount} chars \A #{$totDuration}s duration";
+// 	}
+// 	display: block;
+// 	position: absolute;
+// 	bottom: 0;
+// 	width: 100%;
+// 	padding: 3px 0;
+// 	background: #00f; // aquaman blue
+// 	color: #fff; // Brandon-McConnell white
+// 	text-align: center;
+// 	font-size: 18px;
+// 	letter-spacing: 0.7px;
+// 	white-space: pre-wrap;
+// }
 
-div.frse-portfolio{
-    color: white;
-    font-family: 'Comfortaa', cursive;
-    font-size: 2.6rem;
-    height: inherit;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    -webkit-font-smooting: antialiased;
-    -moz-osx-font-smooting: grayscale;
-    animation: typed #{$totDuration + "s"} linear 3.2s, blink 1s;
+div.frse-portfolio {
+  color: white;
+  font-family: "Comfortaa", cursive;
+  font-size: 2.6rem;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  -webkit-font-smooting: antialiased;
+  -moz-osx-font-smooting: grayscale;
+  animation: typed #{$totDuration + "s"} linear 1.2s, blink 1s;
 
-    &::after{
-        content: " ";
-        position: relative;
-        top: -13px;
-        @media (max-width: 575px) { top: -33px; }
-        display: inline-block;
-        padding-right: 3px;
-        padding-right: calc(3px + 0.1vw);
-        border-right: calc(1.1vw + 4px) solid rgba(#f0f0f0, 0.75);
-		text-shadow: 0 0 5px rgba(85, 85, 85, 0.75);
-		white-space: nowrap;
-		animation: typed #{$totDuration + "s"} linear 3.2s, blink 1s;
+  &::after {
+    content: " ";
+    position: relative;
+    top: -13px;
+    @media (max-width: 575px) {
+      top: -33px;
     }
+    display: inline-block;
+    padding-right: 3px;
+    padding-right: calc(3px + 0.1vw);
+    border-right: calc(1.1vw + 4px) solid rgba(#f0f0f0, 0.75);
+    text-shadow: 0 0 5px rgba(85, 85, 85, 0.75);
+    white-space: nowrap;
+    animation: typed #{$totDuration + "s"} linear 1.2s, blink 1s;
+  }
 }
