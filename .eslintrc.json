@@ -1,0 +1,44 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "import/no-cycle": "off",
+        "indent": "off",
+        "default-case": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "prefer-destructuring": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": "off",
+        "react/jsx-wrap-multilines": "off",
+        "react/no-array-index-key": "off",
+        "react/require-default-props": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/indent": "off",
+        "import/prefer-default-export": "off",
+        "import/no-extraneous-dependencies": "off"
+    }
+}

@@ -1,0 +1,46 @@
+// 📦 Imports
+@import "../../../../styles/utils.scss";
+
+// 🉐 Variables
+$pc-animation-time: 0.9s;
+
+$screen-animation-duration-visibility: $pc-animation-time;
+$screen-animation-duration-fade-in: $screen-animation-duration-visibility;
+
+.pc-device-screen {
+  z-index: 4;
+  $screen-width: toRem(800);
+  $screen-height: toRem(436);
+
+  position: relative;
+  width: $screen-width;
+  height: $screen-height;
+  background-color: #151515;
+  border: 12px solid #d3d3d3;
+  box-shadow: 0px 6px 10px 6px rgba(102, 102, 102, 0.4);
+  border-radius: 8%;
+  top: toRem(4);
+
+  animation: pc-device-screen-visibility $screen-animation-duration-visibility
+      linear,
+    pc-device-screen-fade-in $screen-animation-duration-fade-in linear;
+}
+
+// ✨ Animations
+@keyframes pc-device-screen-visibility {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pc-device-screen-fade-in {
+  from {
+    height: toRem(0);
+  }
+  to {
+    height: toRem(436);
+  }
+}

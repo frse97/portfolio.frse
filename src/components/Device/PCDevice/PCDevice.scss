@@ -1,0 +1,36 @@
+@import "../../../styles/utils.scss";
+
+//colors
+$colors-gold: #ffd700;
+$colors-red: #cc0000;
+
+$pc-container-size: toRem(800);
+
+$pc-standing-height: toRem(30);
+$pc-standing-margin-bottom: toRem(160);
+
+$pc-standing-top: 0;
+$pc-standing-top-floating: $pc-standing-top + toRem(320);
+
+$border-size: toRem(0);
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #1d1d1d;
+}
+
+#root {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}

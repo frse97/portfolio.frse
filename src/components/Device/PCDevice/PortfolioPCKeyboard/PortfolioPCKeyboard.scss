@@ -1,0 +1,57 @@
+// 📦 Imports
+
+// 🉐 Variables
+$pc-animation-time: 2.4s;
+
+$keyboard-animation-duration-visibility: 4.8s;
+$keyboard-animation-duration-fade-in: 2s;
+$keyboard-animation-delay: $pc-animation-time;
+
+.pc-device-keyboard {
+  position: relative;
+  margin: toRem(46) auto 0 auto;
+  height: toRem(120);
+  width: toRem(720);
+  border-radius: toRem(40) toRem(40) toRem(100) toRem(100);
+  background-color: #d3d3d3;
+
+  animation: keyboard-visibility $keyboard-animation-duration-visibility linear,
+    keyboard-fade-in $keyboard-animation-duration-fade-in linear
+      $keyboard-animation-delay;
+
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+
+  -webkit-box-shadow: 0px toRem(12) toRem(2) #7e7e7e;
+  -moz-box-shadow: 0px toRem(12) toRem(2) #7e7e7e;
+  box-shadow: 0px toRem(12) toRem(2) #7e7e7e;
+}
+
+// ✨ Animations
+@keyframes keyboard-visibility {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes keyboard-fade-in {
+  from {
+    top: 120px;
+  }
+  to {
+    top: 0px;
+  }
+}
