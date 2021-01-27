@@ -3,79 +3,49 @@
 
 // 🉐 Variables
 
-$colors-gold: #ffd700;
-$colors-red: #cc0000;
-
-$pc-container-size: toRem(800);
-
-$pc-standing-height: toRem(30);
-$pc-standing-margin-bottom: toRem(160);
-
-$pc-standing-top: 0;
-$pc-standing-top-floating: $pc-standing-top + toRem(320);
-
-$border-size: toRem(0);
-
-$pc-animation-time: 0.9s;
-$standing-1-visibility-animation-duration: $pc-animation-time;
-$standing-1-fade-in-animation-duration: $standing-1-visibility-animation-duration;
-
-$standing-middle-visibility-animation-duration: $pc-animation-time;
-$standing-middle-fade-in-animation-duration: $standing-middle-visibility-animation-duration;
-
 .pc-device-middle-standing {
   z-index: 2;
-  top: toRem(4);
-
   position: relative;
-  border-bottom: toRem(112) solid #d3d3d3;
-  border-left: toRem(32) solid transparent;
-  border-right: toRem(32) solid transparent;
+  top: toRem(4);
+  margin: 0 auto;
   height: 0;
   width: toRem(48);
-  left: calc(50% - 48px);
+  border-bottom: toRem(112) solid $pc-base-color;
+  border-left: toRem(32) solid transparent;
+  border-right: toRem(32) solid transparent;
 
-  animation: pc-device-middle-standing-visibility
-      $standing-middle-visibility-animation-duration linear,
-    pc-device-middle-standing $standing-middle-fade-in-animation-duration linear;
+  animation: pc-device-middle-standing-visibility $anim-intro-duration linear,
+    pc-device-middle-standing $anim-intro-duration linear;
 }
 
 .pc-device-standing-part1 {
-  top: 0;
-
   position: relative;
   margin: 0 auto;
   height: toRem(30);
   width: toRem(600);
-  background-color: #d3d3d3;
+  background-color: $pc-base-color;
   border-radius: 50% 50% 50% 50% / 100% 100% 0% 0%;
-  border-top: $border-size solid $colors-red;
-  border-left: $border-size solid $colors-red;
-  border-right: $border-size solid $colors-red;
-  overflow: hidden;
 
-  animation: pc-device-standing-part1-visibility
-      $standing-1-visibility-animation-duration linear,
-    pc-device-standing-part1-float-in $standing-1-fade-in-animation-duration
-      linear;
+  animation: pc-device-standing-part1-visibility $anim-intro-duration linear,
+    pc-device-standing-part1-float-in $anim-intro-duration linear;
 }
 
 .pc-device-standing-part2 {
+  $pc-device-standing-part-boxshadow-bg: rgba(102, 102, 102, 0.4);
+
   position: relative;
   margin: 0 auto;
   height: toRem(20);
   width: toRem(600);
-  background-color: #d3d3d3;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  border-bottom: $border-size solid $colors-red;
-  border-left: $border-size solid $colors-red;
-  border-right: $border-size solid $colors-red;
-  box-shadow: 0px 6px 10px 6px rgba(102, 102, 102, 0.4);
+  background-color: $pc-base-color;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: toRem(12);
+  border-bottom-right-radius: toRem(12);
+  box-shadow: 0 toRem(6) toRem(10) toRem(6)
+    $pc-device-standing-part-boxshadow-bg;
 
-  animation: pc-device-standing-part2-float-in $pc-animation-time linear;
+  animation: pc-device-standing-part2-float-in $anim-intro-duration linear;
   top: 0;
 }
 
@@ -91,10 +61,10 @@ $standing-middle-fade-in-animation-duration: $standing-middle-visibility-animati
 
 @keyframes pc-device-middle-standing {
   from {
-    border-bottom: toRem(0) solid #d3d3d3;
+    border-bottom: toRem(0) solid $pc-base-color;
   }
   to {
-    border-bottom: toRem(112) solid #d3d3d3;
+    border-bottom: toRem(112) solid $pc-base-color;
   }
 }
 
