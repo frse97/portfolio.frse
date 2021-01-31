@@ -1,5 +1,4 @@
 import React from 'react';
-import './PortfolioPCStandingPart.scss';
 
 export const PCDeviceStandingPartMiddle: React.FC = () => {
   return <div className="pc-device-middle-standing" />

@@ -1,8 +1,6 @@
 import React, { memo, useState } from 'react';
 import { PortfolioDevices } from '../../model';
 import PCDevice from './PCDevice/PCDevice';
-import './PortfolioDevice.scss';
-
 export interface IPortfolioDevice {
   /**
    * The content displayed in the screen of any device 

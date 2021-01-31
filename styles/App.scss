@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+
+// Components
+@import "../src/components/Device/PortfolioDevice.scss";
+@import "../src/components/Device/PCDevice/PCDevice.scss";
+@import "../src/components/Device/Shared/PortfolioScreen/PortfolioScreen.scss";
+@import "../src/components/Device/PCDevice/PortfolioPCCoffeMug/PortfolioPCCoffeMug.scss";
+@import "../src/components/Device/PCDevice/PortfolioPCKeyboard/PortfolioPCKeyboard.scss";
+@import "../src/components/Device/PCDevice/PortfolioPCStandingPart/PortfolioPCStandingPart.scss";
+@import "../src/components/Screen/CodeTypingScreen/CodeTypingScreen.scss";
+@import "../src/components/Screen/PowerScreen/PowerScreen.scss";
+
+// Component Tests
+@import "../src/components/_ideas/3DButton/3dButton.scss";
+
+html,
+body,
+#__next {
+  width: 100%;
+  height: 100%;
+  background-color: #1d1d1d;
+}
+
+#root {
+  display: flex;
+  flex-grow: 1;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+
+  #__next {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.portfolio-content {
+  width: 0px;
+  height: 0px;
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  > div {
+    display: none;
+  }
+}
+
+.portfolio-content.power-start {
+  width: 800px;
+  position: absolute;
+  top: 12px;
+  border-radius: 124px;
+  height: 420px;
+  background-color: #151515;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-family: "Comfortaa", cursive;
+
+  transition: all ease-in-out 2.4s 2.4s;
+
+  > div {
+    display: block;
+  }
+}

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import cs from 'classnames';
-import { CodeTyping } from './components/';
-import './App.scss';
-import PortfolioDevice from './components/Device/PortfolioDevice';
+import PortfolioDevice from '../src/components/Device/PortfolioDevice';
+import PowerScreen from '../src/components/Screen/PowerScreen/PowerScreen';
+import CodeTypingScreen from '../src/components/Screen/CodeTypingScreen/CodeTypingScreen';
 
 const App: React.FC = () => {
   const [mode, setMode] = useState<'on' | 'off'>('off')
@@ -16,7 +16,8 @@ const App: React.FC = () => {
   return (
     <PortfolioDevice screenContent={
       <>
-        <CodeTyping mode={mode} handleMode={handleStartMode} />
+        <CodeTypingScreen mode={mode} />
+        <PowerScreen handleMode={handleStartMode} />
         <div className={portfolioContentClassName}>
           {/* <div>Content comes here</div> */}
         </div>

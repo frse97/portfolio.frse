@@ -1,0 +1,63 @@
+$power-color: #d7d2d3;
+$power-color-hover: #19ffaf;
+
+div.frse-portfolio-start {
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 75px);
+  width: 160px;
+  height: 160px;
+  border-radius: 120px;
+  text-decoration: none;
+  border: none;
+
+  animation-name: start-visibility;
+  animation-duration: 9.6s;
+  animation-timing-function: linear;
+
+  outline: none;
+  border-color: $power-color;
+  box-shadow: 0 1px 24px $power-color;
+
+  transform: scale(0.4);
+
+  .frse-portfolio-power1 {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border: 20px solid $power-color;
+    top: calc(50% - 55px);
+    left: calc(50% - 55px);
+    border-radius: 100%;
+    box-shadow: 0px 0px 16px $power-color;
+  }
+  .frse-portfolio-power2 {
+    top: 6px;
+    border: 5px solid #151515;
+    left: 65px;
+    position: absolute;
+    width: 20px;
+    height: 60px;
+    background-color: $power-color;
+    border-radius: 20px;
+    z-index: 800;
+    box-shadow: 0px 0px 6px $power-color;
+    opacity: 1;
+  }
+}
+
+div.frse-portfolio-start:hover {
+  border-color: $power-color-hover;
+  box-shadow: 0 1px 24px $power-color-hover;
+  cursor: pointer;
+
+  .frse-portfolio-power1 {
+    border: 20px solid $power-color-hover;
+    box-shadow: 0px 0px 16px $power-color-hover;
+  }
+
+  .frse-portfolio-power2 {
+    background-color: $power-color-hover;
+    box-shadow: 0px 0px 6px $power-color-hover;
+  }
+}

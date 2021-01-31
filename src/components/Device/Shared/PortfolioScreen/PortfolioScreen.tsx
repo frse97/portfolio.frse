@@ -1,7 +1,5 @@
 import React, { memo } from 'react';
 import { PortfolioDevices } from '../../../../model';
-import './PortfolioScreen.scss';
-
 export interface IPortfolioScreen {
   /**
    * The current screen displayed

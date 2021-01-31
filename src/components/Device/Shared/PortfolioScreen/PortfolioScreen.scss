@@ -15,6 +15,7 @@ $screen-height-desktop: toRem(436);
   box-shadow: 0 toRem(6) toRem(10) toRem(6) $pc-boxshadow-color;
   border-radius: 8%;
   top: toRem(4);
+  margin: 0 auto;
 
   animation: pc-device-screen-visibility $anim-intro-duration linear,
     pc-device-screen-fade-in $anim-intro-duration linear;
