@@ -1,17 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+// 📦 Imports
 @import "../../../styles/utils.scss";
 
+// 🉐 Variables
+
+// The text displayed as code content
 $contents: ("Hi, my name is Sebastian" "Thank you for visiting my Portfolio");
 
-$durationCharFwd: 0.06; //Character typing
-$durationFullGab: 0.6; //Type beetween typed/delete
-$durationCharBwd: 0.02; //character deleted
-$durationDoneGap: 1; //Time beetween strings
+// Time for 1 Character to be typing
+$durationCharFwd: 0.06;
+// Delay beetween typed and deleted mode
+$durationFullGab: 0.6;
+// Time for 1 Character to be deleted
+$durationCharBwd: 0.02;
+// Delay beetween one sentence and another
+$durationDoneGap: 1;
 
-// Initialize
+// Count of characters in $contents
 $charCount: 0;
+// The total duration of the animation
 $totDuration: 0;
 
+/**
+  - Loop through each string in $contents
+  - Set $charCount (strings.length)
+  - Calculate totalduration 
+    - string.length * (duration typed + duration deleted) + delay typed/deleted + delay beetween strings
+**/
 @each $content in $contents {
   $charCount: $charCount + str-length($content);
   $totDuration: $totDuration +
@@ -47,8 +61,10 @@ $totDuration: 0;
   @return ($time / $totDuration * 100 + $modifier) + "%";
 }
 
-$currentPercentage: 0;
-
+// ✨ Animations
+/**
+  - keyframe used to display the typed code
+**/
 @keyframes typed {
   // Iterate through strings array
   @for $i from 1 through length($contents) {
@@ -87,147 +103,44 @@ $currentPercentage: 0;
   }
 }
 
+/**
+  - keyframe used to let the content blink
+**/
 @keyframes blink {
   75% {
     border-color: transparent;
   }
 }
 
-@keyframes start-visibility {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0;
-  }
-  30% {
-    opacity: 0;
-  }
-  40% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  60% {
-    opacity: 0;
-  }
-  70% {
-    opacity: 0;
-  }
-  80% {
-    opacity: 0;
-  }
-  90% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-$power-color: #d7d2d3;
-$power-color-hover: #19ffaf;
-
-div.typing-wrapper.power-off {
+div.code-typing {
   height: inherit;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-}
-
-div.typing-wrapper.power-on {
-  height: inherit;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-
-  div.frse-portfolio-start {
-    position: absolute;
-    top: calc(50%);
-    left: 0;
-    width: 100%;
-    height: 1px;
-    border-radius: 1px;
-    text-decoration: none;
-    border: none;
-
-    animation-name: start-visibility;
-    animation-duration: 0.3s;
-    animation-timing-function: linear;
-
-    outline: none;
-    border-color: $power-color-hover;
-    box-shadow: 0 0px 0px $power-color-hover;
-
-    transition: all linear 0.2s;
-
-    .frse-portfolio-power1 {
-      position: absolute;
-      transition: all ease 0.2s;
-    }
-    .frse-portfolio-power2 {
-      position: absolute;
-      transition: all ease 0.2s;
-    }
-  }
-
-  div.frse-portfolio-start:hover {
-    cursor: pointer;
-  }
-}
-
-div.frse-portfolio {
-  color: #19ffaf;
-  font-family: "Comfortaa", cursive;
+  color: $pc-code-text-color;
+  font-family: "VT323", monospace, sans-serif;
   font-size: 2.2rem;
-  height: inherit;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  align-items: center;
   justify-content: center;
   align-items: center;
-  -webkit-font-smooting: antialiased;
-  -moz-osx-font-smooting: grayscale;
-  animation: typed #{$totDuration + "s"} linear 1.2s, blink 1s;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  animation: typed #{$totDuration + "s"} linear 1.2s, blink 1s infinite;
 
   &::after {
     content: " ";
-    position: relative;
-    top: -13px;
-    @media (max-width: 575px) {
-      top: -33px;
-    }
     display: inline-block;
-    padding-right: 3px;
-    padding-right: calc(3px + 0.1vw);
-    border-right: calc(1.1vw + 4px) solid rgba(#f0f0f0, 0.75);
-    text-shadow: 0 0 5px rgba(85, 85, 85, 0.75);
+    position: relative;
+    top: toRem(-13);
+    @media (max-width: 575px) {
+      top: toRem(-33); //Cheat for adjusting rectangle before animation starts
+    }
     white-space: nowrap;
-    animation: typed #{$totDuration + "s"} linear 1.2s, blink 1s;
+    padding-right: toRem(3);
+    border-right: calc(1.1vw + toRem(4)) solid rgba($pc-code-text-color, 0.75);
+    text-shadow: 0 0 toRem(5) $pc-code-effect-color-rgba;
+    animation: typed #{$totDuration + "s"} linear 1.2s, blink 1s infinite;
   }
 }
-
-//Stats
-// &::before{
-//     content: "#{length($contents)} strings / #{$charCount} chars / #{$totDuration}s duration";
-// 	@media (max-width: 575px) {
-// 		content: "#{length($contents)} strings \A #{$charCount} chars \A #{$totDuration}s duration";
-// 	}
-// 	display: block;
-// 	position: absolute;
-// 	bottom: 0;
-// 	width: 100%;
-// 	padding: 3px 0;
-// 	background: #00f; // aquaman blue
-// 	color: #fff; // Brandon-McConnell white
-// 	text-align: center;
-// 	font-size: 18px;
-// 	letter-spacing: 0.7px;
-// 	white-space: pre-wrap;
-// }

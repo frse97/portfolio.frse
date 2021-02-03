@@ -1,13 +1,17 @@
+// 📦 Imports
+@import "../../../styles/utils.scss";
+
+// 🉐 Variables
 $power-color: #d7d2d3;
 $power-color-hover: #19ffaf;
 
 div.frse-portfolio-start {
   position: absolute;
-  top: calc(50% - 75px);
-  left: calc(50% - 75px);
-  width: 160px;
-  height: 160px;
-  border-radius: 120px;
+  top: toRem(140);
+  left: toRem(320);
+  width: toRem(160);
+  height: toRem(160);
+  border-radius: toRem(160);
   text-decoration: none;
   border: none;
 
@@ -17,15 +21,15 @@ div.frse-portfolio-start {
 
   outline: none;
   border-color: $power-color;
-  box-shadow: 0 1px 24px $power-color;
+  box-shadow: 0 toRem(1) toRem(24) $power-color;
 
   transform: scale(0.4);
 
   .frse-portfolio-power1 {
     position: absolute;
-    width: 70px;
-    height: 70px;
-    border: 20px solid $power-color;
+    width: toRem(70);
+    height: toRem(70);
+    border: toRem(20) solid $power-color;
     top: calc(50% - 55px);
     left: calc(50% - 55px);
     border-radius: 100%;
@@ -59,5 +63,45 @@ div.frse-portfolio-start:hover {
   .frse-portfolio-power2 {
     background-color: $power-color-hover;
     box-shadow: 0px 0px 6px $power-color-hover;
+  }
+}
+
+// ✨ Animations
+/**
+  - Animation to display the power screen
+**/
+@keyframes start-visibility {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
