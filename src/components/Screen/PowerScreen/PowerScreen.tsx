@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import cs from 'classnames';
 
 export enum IPowerMode {
   ON = 'ON',
@@ -11,10 +12,12 @@ const PowerScreen: React.FC<IPowerScreen> = props => {
   const [mode, setMode] = useState<IPowerMode>(IPowerMode.OFF);
 
   const handleClick = () => {
-    alert('power btn was clicked');
+    setMode(IPowerMode.ON);
   }
 
-  return <div className="frse-portfolio-start" onClick={handleClick}>
+  const className = cs('frse-portfolio-start', mode);
+
+  return <div className={className} onClick={handleClick}>
     <div className="frse-portfolio-power1" />
     <div className="frse-portfolio-power2" />
   </div>;

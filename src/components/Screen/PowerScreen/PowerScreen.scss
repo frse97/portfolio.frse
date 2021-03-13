@@ -5,7 +5,7 @@
 $power-color: #d7d2d3;
 $power-color-hover: #19ffaf;
 
-div.frse-portfolio-start {
+div.frse-portfolio-start.OFF {
   position: absolute;
   top: toRem(140);
   left: toRem(320);
@@ -48,22 +48,45 @@ div.frse-portfolio-start {
     box-shadow: 0px 0px 6px $power-color;
     opacity: 1;
   }
+
+  &:hover {
+    border-color: $power-color-hover;
+    box-shadow: 0 1px 24px $power-color-hover;
+    cursor: pointer;
+
+    .frse-portfolio-power1 {
+      border: 20px solid $power-color-hover;
+      box-shadow: 0px 0px 16px $power-color-hover;
+    }
+
+    .frse-portfolio-power2 {
+      background-color: $power-color-hover;
+      box-shadow: 0px 0px 6px $power-color-hover;
+    }
+  }
 }
 
-div.frse-portfolio-start:hover {
-  border-color: $power-color-hover;
-  box-shadow: 0 1px 24px $power-color-hover;
-  cursor: pointer;
+div.frse-portfolio-start.ON {
+  position: absolute;
+  top: 13.75rem;
+  left: -37rem;
+  width: 124rem;
+  height: 0;
+  border-radius: toRem(160);
+  text-decoration: none;
+  border: none;
 
-  .frse-portfolio-power1 {
-    border: 20px solid $power-color-hover;
-    box-shadow: 0px 0px 16px $power-color-hover;
-  }
+  animation-name: start-visibility;
+  animation-duration: 9.6s;
+  animation-timing-function: linear;
 
-  .frse-portfolio-power2 {
-    background-color: $power-color-hover;
-    box-shadow: 0px 0px 6px $power-color-hover;
-  }
+  outline: none;
+  border-color: $power-color;
+  box-shadow: 0 toRem(1) toRem(24) $power-color;
+
+  transform: scale(0.4);
+
+  transition: all ease-in-out 1s;
 }
 
 // ✨ Animations
