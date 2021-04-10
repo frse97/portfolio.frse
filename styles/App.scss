@@ -10,6 +10,8 @@
 @import "../src/components/Device/PCDevice/PortfolioPCStandingPart/PortfolioPCStandingPart.scss";
 @import "../src/components/Screen/CodeTypingScreen/CodeTypingScreen.scss";
 @import "../src/components/Screen/PowerScreen/PowerScreen.scss";
+@import "../src/components/Contents/PortfolioContent.scss";
+@import "../src/components/Contents/FrseAvatar/FrseAvatar.scss";
 
 // Component Tests
 @import "../src/components/_ideas/3DButton/3dButton.scss";
@@ -40,38 +42,3 @@ body {
     justify-content: center;
   }
 }
-
-// .portfolio-content {
-//   width: 0px;
-//   height: 0px;
-//   border-radius: 0px;
-//   display: flex;
-//   align-items: center;
-//   text-align: center;
-
-//   > div {
-//     display: none;
-//   }
-// }
-
-// .portfolio-content.power-start {
-//   width: 800px;
-//   position: absolute;
-//   top: 12px;
-//   border-radius: 124px;
-//   height: 420px;
-//   background-color: #151515;
-//   color: white;
-
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   font-size: 2rem;
-//   font-family: "Comfortaa", cursive;
-
-//   transition: all ease-in-out 2.4s 2.4s;
-
-//   > div {
-//     display: block;
-//   }
-// }

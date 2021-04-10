@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import cs from 'classnames';
+import { IPowerMode } from '../../../models/model';
 
-export enum IPowerMode {
-  ON = 'ON',
-  OFF = 'OFF'
-}
 export interface IPowerScreen {
+  /**
+   * The current mode of the screen (used for styling)
+   */
+  mode: IPowerMode;
+  /**
+   * A method to handle the screen start
+   */
+  handleClick: () => void;
 }
 
 const PowerScreen: React.FC<IPowerScreen> = props => {
-  const [mode, setMode] = useState<IPowerMode>(IPowerMode.OFF);
-
-  const handleClick = () => {
-    setMode(IPowerMode.ON);
-  }
+  const {mode, handleClick} = props;
 
   const className = cs('frse-portfolio-start', mode);
 

@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { PortfolioDevices } from '../../model';
+import { PortfolioDevices } from '../../models/model';
 import PCDevice from './PCDevice/PCDevice';
 export interface IPortfolioDevice {
   /**

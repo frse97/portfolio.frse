@@ -4,7 +4,7 @@ import { PCDeviceStandingPartBottom1, PCDeviceStandingPartBottom2, PCDeviceStand
 import PortfolioScreen from '../Shared/PortfolioScreen/PortfolioScreen';
 import PortfolioPCKeyboard from '../PCDevice/PortfolioPCKeyboard/PortfolioPCKeyboard';
 import PortfolioPCCoffeMug from '../PCDevice/PortfolioPCCoffeMug/PortfolioPCCoffeMug';
-import { PortfolioDevices } from '../../../model';
+import { PortfolioDevices } from '../../../models/model';
 
 export interface IPCDevice extends IPortfolioDevice { }
 
