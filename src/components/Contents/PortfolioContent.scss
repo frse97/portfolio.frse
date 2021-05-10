@@ -2,83 +2,50 @@
 @import "../../styles/utils.scss";
 
 // 🉐 Variables
-
-div.frse-portfolio-content.OFF {
-  width: 800px;
-  position: absolute;
-  top: 0;
-  border-radius: 24px;
-  height: 436px;
-  background-color:#333333;
-  color: white;
-  visibility: hidden;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-family: "Comfortaa", cursive;
-
-  transition: all ease-in-out 1.4s;
-
-  > div {
-    display: block;
+div.frse-portfolio-content{
+  &.OFF{
+    .frse-portfolio-content-profile{
+      display: none;
+    }
   }
-
-  .profile-description{
+  &.ON{
     position: absolute;
-    bottom: 54px;
+    left: 8px;
+    top: 4px;
+    width: 98%;
+    height: 98%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    transition: all ease-in-out 3.2s;
+    justify-content: center;
 
-    p{
-      margin-bottom: 8px;
-    }
+    .frse-portfolio-content-profile{
+      animation-name: cheat-visibility;
+      animation-duration: 2.4s;
 
-    span{
-      font-size: 18px;
+      .profile-picture{
+        animation-name: start-profile-visibility;
+        animation-duration: 3.2s;
+        animation-timing-function: linear;
+        animation-delay: 2.4s;
+      }
     }
   }
-  
 }
-div.frse-portfolio-content.ON {
-  width: 800px;
-  position: absolute;
-  top: 0;
-  border-radius: 24px;
-  height: 436px;
-  background-color:#333333;
-  color: white;
-  visibility: visible;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-family: "Comfortaa", cursive;
 
-  transition: visibility 3s;
-
-  > div {
-    display: block;
+@keyframes cheat-visibility {
+  0% {
+    opacity: 0;
   }
-
-  .profile-description{
-    position: absolute;
-    bottom: 54px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all ease-in-out 3.2s;
-
-    p{
-      margin-bottom: 8px;
-    }
-
-    span{
-      font-size: 18px;
-    }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes start-profile-visibility {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
   }
 }
