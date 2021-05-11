@@ -47,7 +47,7 @@
       border-radius: 100%;
       border: 2px solid black;
       left: 8px;
-      background-color: #d2d2d2;
+      background-color: #fff;
       z-index: 400;
 
       .frse-skills-badge-container {
@@ -100,7 +100,7 @@
             border-right: 100px solid transparent;
             border-bottom: 70px solid #111111;
             border-left: 100px solid transparent;
-            transform: rotate(35deg) scale(0.1);
+            transform: rotate(35deg) scale(0.09);
 
             &::before {
               border-bottom: 80px solid #111111;
