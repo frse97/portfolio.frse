@@ -20,51 +20,51 @@ $mug-color: #f0eedf;
     z-index: 1;
     padding: 0 20px;
 
-    .vapor1 {
-      --i: 1;
-    }
-    .vapor2 {
-      --i: 2;
-    }
-    .vapor3 {
-      --i: 3;
-    }
-    .vapor4 {
-      --i: 4;
-    }
-    .vapor5 {
-      --i: 5;
-    }
-    .vapor6 {
-      --i: 6;
-    }
-    .vapor7 {
-      --i: 7;
-    }
-    .vapor8 {
-      --i: 8;
-    }
-    .vapor9 {
-      --i: 9;
-    }
-    .vapor10 {
-      --i: ;
-    }
+    // .vapor1 {
+    //   --i: 1;
+    // }
+    // .vapor2 {
+    //   --i: 2;
+    // }
+    // .vapor3 {
+    //   --i: 3;
+    // }
+    // .vapor4 {
+    //   --i: 4;
+    // }
+    // .vapor5 {
+    //   --i: 5;
+    // }
+    // .vapor6 {
+    //   --i: 6;
+    // }
+    // .vapor7 {
+    //   --i: 7;
+    // }
+    // .vapor8 {
+    //   --i: 8;
+    // }
+    // .vapor9 {
+    //   --i: 9;
+    // }
+    // .vapor10 {
+    //   --i: ;
+    // }
 
     span {
-      position: relative;
-      bottom: 50px;
-      display: block;
-      margin: 0 2px 50px;
-      min-width: 8px;
-      height: 120px;
-      background: #fff;
-      border-radius: 50%;
+      // position: relative;
+      // bottom: 50px;
+      // display: block;
+      // margin: 0 2px 50px;
+      // min-width: 8px;
+      // height: 120px;
+      // background: #fff;
+      // border-radius: 50%;
 
-      animation: vaporanimate 10s linear infinite;
-      filter: blur(8px);
+      // animation: vaporanimate 10s linear infinite;
+      // filter: blur(8px);
 
-      animation-delay: calc(var(--i) * -0.5s);
+      // animation-delay: calc(var(--i) * -0.5s);
     }
   }
 
@@ -199,21 +199,21 @@ $mug-color: #f0eedf;
   }
 }
 
-@keyframes vaporanimate {
-  0% {
-    transform: translateY(0) scaleX(1);
-    opacity: 0;
-  }
-  15% {
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(-75px) scaleX(5);
-  }
-  95% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(-150px) scaleX(10);
-  }
-}
+// @keyframes vaporanimate {
+//   0% {
+//     transform: translateY(0) scaleX(1);
+//     opacity: 0;
+//   }
+//   15% {
+//     opacity: 1;
+//   }
+//   50% {
+//     transform: translateY(-75px) scaleX(5);
+//   }
+//   95% {
+//     opacity: 0.5;
+//   }
+//   100% {
+//     transform: translateY(-150px) scaleX(10);
+//   }
+// }
