@@ -1,0 +1,218 @@
+.frse-app-icon {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border: 3px solid #2b2b2b;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px 0px #2b2b2b;
+  -webkit-box-shadow: 0px 0px 10px 0px #2b2b2b;
+  -moz-box-shadow: 0px 0px 10px 0px #2b2b2b;
+  overflow: hidden;
+
+  &-about-me {
+    background-color: #d3d3d3;
+
+    .frse-about-me-body {
+      position: absolute;
+      bottom: -8px;
+      left: 13px;
+      width: 14px;
+      height: 20px;
+      border: 2px solid #111111;
+      border-radius: 30% 30% 0 0;
+      background-color: #fff;
+      z-index: 300;
+    }
+    .frse-about-me-head {
+      position: absolute;
+      bottom: 12px;
+      left: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      border: 2px solid #111111;
+      background-color: #f0beaf;
+      z-index: 301;
+    }
+  }
+
+  &-skills {
+    background-color: #d3d3d3;
+
+    .frse-skills-badge-top {
+      position: absolute;
+      bottom: 12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      border: 2px solid black;
+      left: 8px;
+      background-color: #d2d2d2;
+      z-index: 400;
+
+      .frse-skills-badge-container {
+        position: relative;
+
+        .frse-skills-badge-top-star {
+          position: absolute;
+          right: -88px;
+          top: -23px;
+          color: #a0a0a0;
+          border-right: 100px solid transparent;
+          border-bottom: 70px solid #a0a0a0;
+          border-left: 100px solid transparent;
+          transform: rotate(35deg) scale(0.06);
+          z-index: 999;
+
+          &::before {
+            border-bottom: 80px solid #a0a0a0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            position: absolute;
+            height: 0;
+            width: 0;
+            top: -45px;
+            left: -65px;
+            display: block;
+            content: "";
+            transform: rotate(-35deg);
+          }
+          &::after {
+            position: absolute;
+            display: block;
+            color: #a0a0a0;
+            top: 3px;
+            left: -105px;
+            width: 0px;
+            height: 0px;
+            border-right: 100px solid transparent;
+            border-bottom: 70px solid #a0a0a0;
+            border-left: 100px solid transparent;
+            transform: rotate(-70deg);
+            content: "";
+          }
+
+          &-border {
+            position: absolute;
+            right: -88px;
+            top: -23px;
+            color: #111111;
+            border-right: 100px solid transparent;
+            border-bottom: 70px solid #111111;
+            border-left: 100px solid transparent;
+            transform: rotate(35deg) scale(0.1);
+
+            &::before {
+              border-bottom: 80px solid #111111;
+              border-left: 30px solid transparent;
+              border-right: 30px solid transparent;
+              position: absolute;
+              height: 0;
+              width: 0;
+              top: -45px;
+              left: -65px;
+              display: block;
+              content: "";
+              transform: rotate(-35deg);
+            }
+            &::after {
+              position: absolute;
+              display: block;
+              color: #111111;
+              top: 3px;
+              left: -105px;
+              width: 0px;
+              height: 0px;
+              border-right: 100px solid transparent;
+              border-bottom: 70px solid #111111;
+              border-left: 100px solid transparent;
+              transform: rotate(-70deg);
+              content: "";
+            }
+          }
+        }
+      }
+    }
+    .frse-skills-badge-bottom-left {
+      position: absolute;
+      bottom: 2px;
+      left: 12px;
+      width: 8px;
+      height: 25px;
+      background: #a2a2a2;
+      border: 2px solid black;
+      border-radius: 4px;
+      transform: rotate(35deg);
+
+      &-triangle {
+        position: absolute;
+        bottom: -3px;
+        left: -1px;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #d3d3d3;
+
+        &-border {
+          position: absolute;
+          bottom: 0px;
+          left: -1px;
+          width: 0;
+          height: 0;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: 5px solid black;
+        }
+      }
+    }
+    .frse-skills-badge-bottom-right {
+      position: absolute;
+      bottom: 3px;
+      left: 20px;
+      width: 8px;
+      height: 20px;
+      background: #a2a2a2;
+      border: 2px solid black;
+      border-radius: 4px;
+      transform: rotate(150deg);
+
+      &-triangle {
+        position: absolute;
+        bottom: 18px;
+        left: -1px;
+        transform: rotate(180deg);
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 5px solid #d3d3d3;
+
+        &-border {
+          position: absolute;
+          bottom: 15px;
+          left: -1px;
+          transform: rotate(180deg);
+          width: 0;
+          height: 0;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-bottom: 5px solid black;
+        }
+      }
+    }
+  }
+}
+
+.icon-b-tl {
+  border-radius: 0 100% 100% 100%;
+}
+.icon-b-tr {
+  border-radius: 100% 0 100% 100%;
+}
+.icon-b-bl {
+  border-radius: 100% 100% 0;
+}
+.icon-b-br {
+  border-radius: 100% 100% 100% 0;
+}

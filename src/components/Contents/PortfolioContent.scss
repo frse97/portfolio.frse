@@ -2,13 +2,13 @@
 @import "../../styles/utils.scss";
 
 // 🉐 Variables
-div.frse-portfolio-content{
-  &.OFF{
-    .frse-portfolio-content-profile{
+div.frse-portfolio-content {
+  &.OFF {
+    .frse-portfolio-content-profile {
       display: none;
     }
   }
-  &.ON{
+  &.ON {
     position: absolute;
     left: 8px;
     top: 4px;
@@ -18,20 +18,47 @@ div.frse-portfolio-content{
     align-items: center;
     justify-content: center;
 
-    .frse-portfolio-content-profile{
-      animation-name: cheat-visibility;
-      animation-duration: 2.4s;
+    .frse-portfolio-content-profile {
+      // animation-name: cheat-visibility;
+      // animation-duration: 2.4s;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 164px;
 
-      .profile-picture{
-        animation-name: start-profile-visibility;
-        animation-duration: 3.2s;
-        animation-timing-function: linear;
-        animation-delay: 2.4s;
+      .frse-btn-container {
+        &.frse-about-me {
+          animation-name: start-btn-visibility;
+          animation-duration: 2.4s;
+          animation-timing-function: ease-in;
+          animation-delay: 1.2s;
+          animation-fill-mode: backwards;
+        }
+        &.frse-skills {
+          animation-name: start-btn-visibility;
+          animation-duration: 2.4s;
+          animation-timing-function: ease-in;
+          animation-delay: 1.6s;
+          animation-fill-mode: backwards;
+        }
+        &.frse-projects {
+          animation-name: start-btn-visibility;
+          animation-duration: 2.4s;
+          animation-timing-function: ease-in;
+          animation-delay: 2s;
+          animation-fill-mode: backwards;
+        }
+        &.frse-hobbies {
+          animation-name: start-btn-visibility;
+          animation-duration: 2.4s;
+          animation-timing-function: ease-in;
+          animation-delay: 2.4s;
+          animation-fill-mode: backwards;
+        }
       }
     }
   }
 }
-
 
 @keyframes cheat-visibility {
   0% {
@@ -41,7 +68,9 @@ div.frse-portfolio-content{
     opacity: 0;
   }
 }
-@keyframes start-profile-visibility {
+
+// Reuse same strategy for other elements
+@keyframes start-btn-visibility {
   0% {
     opacity: 0;
   }
