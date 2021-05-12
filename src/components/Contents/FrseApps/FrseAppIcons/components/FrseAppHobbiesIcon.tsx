@@ -5,7 +5,8 @@ interface IFrseAppHobbiesIcon {}
 const FrseAppHobbiesIcon: React.FC<IFrseAppHobbiesIcon> = props => {
   return (
     <>
-      <div className="frse-hobbies-x" />
+      <div className="frse-app-icon-hobbies-heart-shape" />
+      <div className="frse-app-icon-hobbies-heart-shape-border" />
     </>
   )
 }
