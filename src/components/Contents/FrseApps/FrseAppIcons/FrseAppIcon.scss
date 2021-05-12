@@ -202,6 +202,67 @@
       }
     }
   }
+
+  &-projects {
+    background-color: #d3d3d3;
+
+    &-arrow-left-1 {
+      position: absolute;
+      width: 10px;
+      height: 3px;
+      border: 2px solid black;
+      border-radius: 4px;
+      bottom: 19px;
+      background-color: #9b9b9b;
+      transform: rotate(36deg);
+      left: 2px;
+    }
+    &-arrow-left-2 {
+      position: absolute;
+      width: 10px;
+      height: 3px;
+      border: 2px solid black;
+      border-radius: 4px;
+      bottom: 23px;
+      background-color: #4d4d4d;
+      transform: rotate(152deg);
+      left: 2px;
+    }
+    &-arrow-middle {
+      position: absolute;
+      width: 28px;
+      height: 4px;
+      border: 2px solid black;
+      border-radius: 4px;
+      bottom: 20px;
+      background-color: #9b9b9b;
+      transform: rotate(109deg);
+      left: 7px;
+      z-index: 999;
+    }
+    &-arrow-right-1 {
+      position: absolute;
+      width: 10px;
+      height: 3px;
+      border: 2px solid black;
+      border-radius: 4px;
+      bottom: 23px;
+      background-color: #9b9b9b;
+      transform: rotate(36deg);
+      left: 30px;
+    }
+    &-arrow-right-2 {
+      position: absolute;
+      width: 10px;
+      height: 3px;
+      border: 2px solid black;
+      border-radius: 4px;
+      bottom: 19px;
+      background-color: #4d4d4d;
+      transform: rotate(152deg);
+      left: 30px;
+    }
+  }
 }
 
 .icon-b-tl {
