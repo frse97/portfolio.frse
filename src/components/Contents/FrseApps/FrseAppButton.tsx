@@ -1,7 +1,7 @@
 import React from "react";
 import cs from "classnames";
 
-interface IFrseAppButton {
+export interface IFrseAppButton {
   /**
    * A label to display for the Button
    * Label is always visible since not hoverable on mobile

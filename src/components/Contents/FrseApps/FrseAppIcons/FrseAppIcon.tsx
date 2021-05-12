@@ -18,7 +18,7 @@ export enum FrseAppIconType {
   HOBBIES = "HOBBIES",
 }
 
-interface IFrseAppIcon {
+export interface IFrseAppIcon {
   /**
    * An additional className for the icon
    */

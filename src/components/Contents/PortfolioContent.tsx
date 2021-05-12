@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useCallback } from "react";
 import cs from "classnames";
 import { IPowerMode } from "../../models/model";
-import FrseAvatar from "./FrseAvatar/FrseAvatar";
-import FrseAppButton from "./FrseApps/FrseAppButton";
-import FrseIcon, { FrseAppIconType } from "../Contents/FrseApps/FrseAppIcons/FrseAppIcon";
+import FrseAppButton, { IFrseAppButton } from "./FrseApps/FrseAppButton";
+import FrseAppIcon, { FrseAppIconType } from "../Contents/FrseApps/FrseAppIcons/FrseAppIcon";
 
 export interface IPortfolioContent {
   /**
@@ -11,6 +10,31 @@ export interface IPortfolioContent {
    */
   mode: IPowerMode;
 }
+
+interface AppButtons extends IFrseAppButton {}
+
+const apps: AppButtons[] = [
+  { 
+    className: "frse-about-me",
+    label: "About me",
+    content: <FrseAppIcon type={FrseAppIconType.ABOUT_ME} borderDirection="bottom-right" />
+  },
+  {
+    className: "frse-skills",
+    label: "Skills",
+    content: <FrseAppIcon type={FrseAppIconType.SKILLS} borderDirection="bottom-right" />
+  },
+  {
+    className: "frse-projects",
+    label: "Projects",
+    content: <FrseAppIcon type={FrseAppIconType.PROJECTS} borderDirection="bottom-left" />
+  },
+  {
+    className: "frse-hobbies",
+    label: "Hobbies",
+    content: <FrseAppIcon type={FrseAppIconType.HOBBIES} borderDirection="bottom-left" />
+  }
+]
 
 const PortfolioContent: React.FC<IPortfolioContent> = (props) => {
   const { mode } = props;
@@ -21,26 +45,9 @@ const PortfolioContent: React.FC<IPortfolioContent> = (props) => {
     <div className={portfolioContentClassName}>
       <div className="frse-portfolio-content-profile">
         {/* <FrseAvatar /> */}
-        <FrseAppButton
-          className="frse-about-me"
-          label="About me"
-          content={<FrseIcon type={FrseAppIconType.ABOUT_ME} borderDirection="bottom-right" />}
-        />
-        <FrseAppButton
-          className="frse-skills"
-          label="Skills"
-          content={<FrseIcon type={FrseAppIconType.SKILLS} borderDirection="bottom-right" />}
-        />
-        <FrseAppButton
-          className="frse-projects"
-          label="Projects"
-          content={<FrseIcon type={FrseAppIconType.PROJECTS} borderDirection="bottom-left" />}
-        />
-        <FrseAppButton
-          className="frse-hobbies"
-          label="Hobbies"
-          content={<FrseIcon type={FrseAppIconType.HOBBIES} borderDirection="bottom-left" />}
-        />
+        {apps.map((item: IFrseAppButton, i) => {
+          return <FrseAppButton key={i} className={item.className} label={item.label} content={item.content} onClick={item.onClick} />
+        })}
       </div>
     </div>
   );
