@@ -213,7 +213,7 @@
       border: 2px solid black;
       border-radius: 4px;
       bottom: 19px;
-      background-color: #9b9b9b;
+      background-color: #4c4cff;
       transform: rotate(36deg);
       left: 2px;
     }
@@ -224,7 +224,7 @@
       border: 2px solid black;
       border-radius: 4px;
       bottom: 23px;
-      background-color: #4d4d4d;
+      background-color: #9999ff;
       transform: rotate(152deg);
       left: 2px;
     }
@@ -235,7 +235,7 @@
       border: 2px solid black;
       border-radius: 4px;
       bottom: 20px;
-      background-color: #9b9b9b;
+      background-color: #9999ff;
       transform: rotate(109deg);
       left: 7px;
       z-index: 999;
@@ -247,7 +247,7 @@
       border: 2px solid black;
       border-radius: 4px;
       bottom: 23px;
-      background-color: #9b9b9b;
+      background-color: #4c4cff;
       transform: rotate(36deg);
       left: 30px;
     }
@@ -258,7 +258,7 @@
       border: 2px solid black;
       border-radius: 4px;
       bottom: 19px;
-      background-color: #4d4d4d;
+      background-color: #9999ff;
       transform: rotate(152deg);
       left: 30px;
     }
@@ -271,7 +271,7 @@
       position: relative;
       width: 16px;
       height: 16px;
-      background-color: #a2a2a2;
+      background-color: #ff6666;
       bottom: -18px;
       left: 15px;
       transform: rotate(45deg);
@@ -285,7 +285,7 @@
         height: 16px;
         border-radius: 50%;
         content: "";
-        background-color: #a2a2a2;
+        background-color: #ff6666;
       }
 
       &::after {
@@ -297,7 +297,7 @@
         height: 16px;
         border-radius: 50%;
         content: "";
-        background-color: #a2a2a2;
+        background-color: #ff4c4c;
       }
 
       &-border {
