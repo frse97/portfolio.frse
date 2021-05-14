@@ -1,0 +1,42 @@
+// Collapsed style
+.frse-portfolio-content-profile {
+  &.about-me-collapsed,
+  &.skills-collapsed,
+  &.projects-collapsed,
+  &.hobbies-collapsed {
+    .frse-page-content {
+      opacity: 0;
+      transition: all ease-in-out 2.4s;
+    }
+  }
+}
+
+// Expanded style
+.frse-portfolio-content-profile {
+  &.about-me-expanded {
+    .frse-page-content.frse-content-about-me {
+      width: 98%;
+      height: 98%;
+      border-radius: 12px;
+      background-color: #fff;
+      box-shadow: 4px 4px 12px black inset;
+      opacity: 1;
+      position: absolute;
+      transition: all ease-in-out 1.2s;
+      z-index: 998;
+    }
+  }
+  &.skills-expanded {
+    .frse-page-content.frse-content-skills {
+      width: 98%;
+      height: 98%;
+      border-radius: 12px;
+      background-color: #fff;
+      box-shadow: 4px 4px 12px black inset;
+      opacity: 1;
+      position: absolute;
+      transition: all ease-in-out 1.2s;
+      z-index: 998;
+    }
+  }
+}

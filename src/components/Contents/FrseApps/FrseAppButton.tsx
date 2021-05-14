@@ -14,7 +14,11 @@ export interface IFrseAppButton {
   /**
    * The content to display in the Button
    */
-  content?: React.ReactNode;
+  btnContent?: React.ReactNode;
+  /**
+   * The content for the page
+   */
+  pageContent?: React.ReactNode;
   /**
    * A method on click
    */
@@ -22,16 +26,17 @@ export interface IFrseAppButton {
 }
 
 const FrseAppButton: React.FC<IFrseAppButton> = (props) => {
-  const { label, className, content, onClick } = props;
+  const { label, className, btnContent, pageContent, onClick } = props;
 
   const classNames = cs("frse-btn-container", className);
 
   return (
     <div className={classNames}>
       <button className="frse-btn" onClick={onClick}>
-        {content}
+        {btnContent}
       </button>
       <span className="frse-btn-label">{label}</span>
+      {pageContent}
     </div>
   );
 };

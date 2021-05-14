@@ -47,7 +47,7 @@
       border-radius: 100%;
       border: 2px solid black;
       left: 8px;
-      background-color: #fff;
+      background-color: #ffef99;
       z-index: 400;
 
       .frse-skills-badge-container {
@@ -57,15 +57,15 @@
           position: absolute;
           right: -88px;
           top: -23px;
-          color: #a0a0a0;
+          color: #fff;
           border-right: 100px solid transparent;
-          border-bottom: 70px solid #a0a0a0;
+          border-bottom: 70px solid #fff;
           border-left: 100px solid transparent;
           transform: rotate(35deg) scale(0.06);
           z-index: 999;
 
           &::before {
-            border-bottom: 80px solid #a0a0a0;
+            border-bottom: 80px solid #fff;
             border-left: 30px solid transparent;
             border-right: 30px solid transparent;
             position: absolute;
@@ -80,13 +80,13 @@
           &::after {
             position: absolute;
             display: block;
-            color: #a0a0a0;
+            color: #fff;
             top: 3px;
             left: -105px;
             width: 0px;
             height: 0px;
             border-right: 100px solid transparent;
-            border-bottom: 70px solid #a0a0a0;
+            border-bottom: 70px solid #fff;
             border-left: 100px solid transparent;
             transform: rotate(-70deg);
             content: "";
@@ -139,7 +139,7 @@
       left: 12px;
       width: 8px;
       height: 25px;
-      background: #a2a2a2;
+      background: #b20000;
       border: 2px solid black;
       border-radius: 4px;
       transform: rotate(35deg);
@@ -172,7 +172,7 @@
       left: 20px;
       width: 8px;
       height: 20px;
-      background: #a2a2a2;
+      background: #b20000;
       border: 2px solid black;
       border-radius: 4px;
       transform: rotate(150deg);

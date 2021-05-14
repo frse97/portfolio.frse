@@ -19,12 +19,12 @@ div.frse-portfolio-content {
     justify-content: center;
 
     .frse-portfolio-content-profile {
-      // animation-name: cheat-visibility;
-      // animation-duration: 2.4s;
-      display: flex;
-      align-items: center;
-      position: absolute;
-      top: 164px;
+      &.about-me-collapsed,
+      &.skills-collapsed,
+      &.projects-collapsed,
+      &.hobbies-collapsed {
+        display: flex;
+      }
 
       .frse-btn-container {
         &.frse-about-me {
@@ -56,16 +56,103 @@ div.frse-portfolio-content {
           animation-fill-mode: backwards;
         }
       }
-    }
-  }
-}
 
-@keyframes cheat-visibility {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
+      //ABOUT ME EXPANDED
+      &.about-me-expanded {
+        // Move Icon Upwords and transform
+        width: 98%;
+        height: 98%;
+        left: 260px;
+        transition: all ease 1.2s;
+
+        .frse-btn-container {
+          align-items: flex-start;
+
+          &.frse-about-me {
+            .frse-btn {
+              background-color: #151515;
+              margin-left: 0;
+              border-bottom-left-radius: 0;
+              border-top-right-radius: 0;
+              z-index: 999;
+              box-shadow: 1px 1px 6px #111;
+              -webkit-box-shadow: 1px 1px 6px #111;
+              -moz-box-shadow: 1px 1px 6px #111;
+
+              &:hover {
+                border-bottom-left-radius: 0;
+                border-top-right-radius: 0;
+                box-shadow: 1px 1px 6px #111;
+                -webkit-box-shadow: 1px 1px 6px #111;
+                -moz-box-shadow: 1px 1px 6px #111;
+              }
+            }
+          }
+        }
+
+        // Hide all the other apps
+        .frse-btn-container {
+          &.frse-skills,
+          &.frse-projects,
+          &.frse-hobbies {
+            opacity: 0;
+            .frse-btn {
+              cursor: unset;
+            }
+          }
+        }
+      }
+
+      //SKILLS EXPANDED
+      &.skills-expanded {
+        // Move Icon Upwords and transform
+        width: 98%;
+        height: 98%;
+        left: 260px;
+        transition: all ease 1.2s;
+
+        // Hide ABOUT ME
+        .frse-about-me {
+          width: 0;
+        }
+        .frse-btn-container {
+          align-items: flex-start;
+
+          &.frse-skills {
+            .frse-btn {
+              background-color: #151515;
+              margin-left: 0;
+              border-bottom-left-radius: 0;
+              border-top-right-radius: 0;
+              z-index: 999;
+              box-shadow: 1px 1px 6px #111;
+              -webkit-box-shadow: 1px 1px 6px #111;
+              -moz-box-shadow: 1px 1px 6px #111;
+
+              &:hover {
+                border-bottom-left-radius: 0;
+                border-top-right-radius: 0;
+                box-shadow: 1px 1px 6px #111;
+                -webkit-box-shadow: 1px 1px 6px #111;
+                -moz-box-shadow: 1px 1px 6px #111;
+              }
+            }
+          }
+        }
+
+        // Hide all the other apps
+        .frse-btn-container {
+          &.frse-about-me,
+          &.frse-projects,
+          &.frse-hobbies {
+            opacity: 0;
+            .frse-btn {
+              cursor: unset;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
