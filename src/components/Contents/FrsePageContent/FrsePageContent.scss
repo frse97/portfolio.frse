@@ -39,4 +39,30 @@
       z-index: 998;
     }
   }
+  &.projects-expanded {
+    .frse-page-content.frse-content-projects {
+      width: 98%;
+      height: 98%;
+      border-radius: 12px;
+      background-color: #fff;
+      box-shadow: 4px 4px 12px black inset;
+      opacity: 1;
+      position: absolute;
+      transition: all ease-in-out 1.2s;
+      z-index: 998;
+    }
+  }
+  &.hobbies-expanded {
+    .frse-page-content.frse-content-hobbies {
+      width: 98%;
+      height: 98%;
+      border-radius: 12px;
+      background-color: #fff;
+      box-shadow: 4px 4px 12px black inset;
+      opacity: 1;
+      position: absolute;
+      transition: all ease-in-out 1.2s;
+      z-index: 998;
+    }
+  }
 }
