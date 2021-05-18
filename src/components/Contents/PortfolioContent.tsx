@@ -5,7 +5,8 @@ import FrseAppButton, { IFrseAppButton } from "./FrseApps/FrseAppButton";
 import FrseAppIcon, {
   FrseAppIconType,
 } from "../Contents/FrseApps/FrseAppIcons/FrseAppIcon";
-import FrsePageContent from '../Contents/FrsePageContent/FrsePageContent';
+import FrsePageContent from "../Contents/FrsePageContent/FrsePageContent";
+import { FrseAvatar } from "./FrseAvatar";
 
 export interface IPortfolioContent {
   /**
@@ -35,7 +36,26 @@ const PortfolioContent: React.FC<IPortfolioContent> = (props) => {
         />
       ),
       pageContent: (
-        <FrsePageContent className="frse-content-about-me" />
+        <FrsePageContent className="frse-content-about-me">
+          <div className="frse-content-header">.aboutme</div>
+          <div className="frse-content-body">
+            <div className="frse-content-body-part body-1">
+              <div className="frse-content-text">
+                <span>My name is Sebastian Fries</span>
+                <span>I'm an austrian web developer</span>
+                <span>Currently living in italy</span>
+              </div>
+              <div className="frse-content-profile">
+                <FrseAvatar />
+              </div>
+            </div>
+            <div className="frse-content-body-part body-2">
+              <div className="frse-content-road">
+                <p>Life road</p>
+              </div>
+            </div>
+          </div>
+        </FrsePageContent>
       ),
       onClick: () => setIsAboutMeVisible(!isAboutMeVisible),
     },
@@ -48,9 +68,7 @@ const PortfolioContent: React.FC<IPortfolioContent> = (props) => {
           borderDirection="bottom-right"
         />
       ),
-      pageContent: (
-        <FrsePageContent className="frse-content-skills" />
-      ),
+      pageContent: <FrsePageContent className="frse-content-skills" />,
       onClick: () => setIsSkillsVisible(!isSkillsVisible),
     },
     {
@@ -62,9 +80,7 @@ const PortfolioContent: React.FC<IPortfolioContent> = (props) => {
           borderDirection="bottom-left"
         />
       ),
-      pageContent: (
-        <FrsePageContent className="frse-content-projects"/>
-      ),
+      pageContent: <FrsePageContent className="frse-content-projects" />,
       onClick: () => setIsProjectsVisible(!isProjectsVisible),
     },
     {
@@ -76,9 +92,7 @@ const PortfolioContent: React.FC<IPortfolioContent> = (props) => {
           borderDirection="bottom-left"
         />
       ),
-      pageContent: (
-        <FrsePageContent className="frse-content-hobbies"/>
-      ),
+      pageContent: <FrsePageContent className="frse-content-hobbies" />,
       onClick: () => setIsHobbiesVisible(!isHobbiesVisible),
     },
   ];
@@ -89,7 +103,7 @@ const PortfolioContent: React.FC<IPortfolioContent> = (props) => {
     isAboutMeVisible ? "about-me-expanded" : "about-me-collapsed",
     isSkillsVisible ? "skills-expanded" : "skills-collapsed",
     isProjectsVisible ? "projects-expanded" : "projects-collapsed",
-    isHobbiesVisible ? "hobbies-expanded" : "hobbies-collapsed",
+    isHobbiesVisible ? "hobbies-expanded" : "hobbies-collapsed"
   );
 
   return (
