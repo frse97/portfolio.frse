@@ -41,9 +41,9 @@ const PortfolioContent: React.FC<IPortfolioContent> = (props) => {
           <div className="frse-content-body">
             <div className="frse-content-body-part body-1">
               <div className="frse-content-text">
-                <span>My name is Sebastian Fries</span>
-                <span>I'm an austrian web developer</span>
-                <span>Currently living in italy</span>
+                <span>My name is</span>
+                <b>Sebastian Fries</b>
+                <span>I'm an austrian web developer currently living in italy</span>
               </div>
               <div className="frse-content-profile">
                 <FrseAvatar />

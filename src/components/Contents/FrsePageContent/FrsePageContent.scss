@@ -87,9 +87,17 @@
             font-size: 24px;
             font-family: "Consolas";
 
+            b {
+              font-size: 32px;
+              padding-bottom: 12px;
+            }
+
             span:first-child {
               font-size: 28px;
-              padding-bottom: 12px;
+              padding-bottom: 6px;
+            }
+            span {
+              font-size: 20px;
             }
           }
           .frse-content-profile {
