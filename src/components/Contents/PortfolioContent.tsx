@@ -77,7 +77,7 @@ const PortfolioContent: React.FC<IPortfolioContent> = (props) => {
       btnContent: (
         <FrseAppIcon
           type={FrseAppIconType.PROJECTS}
-          borderDirection="bottom-left"
+          borderDirection="bottom-right"
         />
       ),
       pageContent: <FrsePageContent className="frse-content-projects" />,
@@ -89,7 +89,7 @@ const PortfolioContent: React.FC<IPortfolioContent> = (props) => {
       btnContent: (
         <FrseAppIcon
           type={FrseAppIconType.HOBBIES}
-          borderDirection="bottom-left"
+          borderDirection="bottom-right"
         />
       ),
       pageContent: <FrsePageContent className="frse-content-hobbies" />,

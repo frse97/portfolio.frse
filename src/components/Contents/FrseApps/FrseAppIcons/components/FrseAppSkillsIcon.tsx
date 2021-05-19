@@ -7,8 +7,8 @@ const FrseAppSkillsIcon: React.FC<IFrseAppSkillsIcon> = (props) => {
     <>
       <div className="frse-skills-badge-top">
         <div className="frse-skills-badge-container">
-          {/* <div className="frse-skills-badge-top-star" />
-          <div className="frse-skills-badge-top-star-border" /> */}
+          <div className="frse-skills-badge-top-star" />
+          {/* <div className="frse-skills-badge-top-star-border" /> */}
         </div>
       </div>
       <div className="frse-skills-badge-bottom-left">
